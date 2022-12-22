@@ -13,7 +13,7 @@ const numOnly = /^[1-9]\d*$/
 const emailAuth = /\S+@\S+\.\S+/
 
 
-function appMenu() {
+function Init() {
   function createManager() {
     console.log('Please input your team information... ');
     inquirer
@@ -102,7 +102,8 @@ function appMenu() {
             createIntern();
             break;
           default:
-            createTeam();
+            console.log("team created")
+            createDir();
         }
       });
   }
@@ -246,7 +247,7 @@ function appMenu() {
       });
   }
 
-  function createTeam() {
+  function createDir() {
     if (!fs.existsSync(DIST_DIR)) {
       fs.mkdirSync(DIST_DIR);
     }
@@ -256,4 +257,4 @@ function appMenu() {
   createManager();
 }
 
-appMenu();
+Init();
